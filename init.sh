@@ -8,4 +8,4 @@ cd ansible-workstation
 sed -i "s/git@github.com:/https:\/\/github.com\//" .gitmodules
 git submodule init
 git submodule update
-ansible-playbook main.yml --sudo -K -c local -i "localhost,"
+ansible-playbook main.yml -c local -i "localhost,"
