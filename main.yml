@@ -5,7 +5,7 @@
     apt: cache_valid_time=3600 update_cache=yes
     tags: [packages,update]
   - name: Ensure packages are up to date
-    apt: upgrade=safe
+    apt: upgrade=dist
     tags: [packages,update]
   vars:
     package_ubuntu_extras_repository: false
