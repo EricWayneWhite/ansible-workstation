@@ -1,0 +1,20 @@
+---
+- hosts: all
+  post_tasks:
+  - name: Ensure apt cache is up to date
+    apt: cache_valid_time=3600 update_cache=yes
+    tags: [packages,update]
+  - name: Ensure packages are up to date
+    apt: upgrade=safe
+    tags: [packages,update]
+  vars:
+    package_ubuntu_extras_repository: false
+    package_ubuntu_partner_repository: false
+    package_ubuntu_multiverse_repository: false
+  roles:
+    - role: package
+      package_install_packages:
+      - p7zip-full
+      - p7zip-rar
+      - vim
+      - vlc
